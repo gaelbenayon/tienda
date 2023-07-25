@@ -25,7 +25,7 @@ function NavBar() {
             </ul>
             <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                <button className="btn btn-outline-light" type="submit"><img src={magnifyingGlass}/></button>
+                <button className="btn btn-outline-light" type="submit"><img src={magnifyingGlass} alt="buscador"/></button>
             </form>
             </div>
         </div>
