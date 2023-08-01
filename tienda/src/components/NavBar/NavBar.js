@@ -2,7 +2,7 @@ import "./style.css";
 import CartWidget from "../CartWidget/CartWidget";
 import magnifyingGlass from "./assets/magnifying-glass.svg";
 
-function NavBar() {
+export default function NavBar() {
     return (
     <nav className="navbar navbar-expand-md bg-info">
         <div className="container-fluid">
@@ -32,5 +32,3 @@ function NavBar() {
     </nav>
     )
 }
-
-export default NavBar;

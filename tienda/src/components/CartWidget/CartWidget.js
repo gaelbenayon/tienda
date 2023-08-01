@@ -1,7 +1,7 @@
 import "./style.css";
 import carrito from "./assets/cart.svg";
 
-function CartWidget() {
+export default function CartWidget() {
     return (
         <div className="p-2">
             <button type="button" className="btn position-relative">
@@ -14,5 +14,3 @@ function CartWidget() {
         </div>
     )
 }
-
-export default CartWidget;

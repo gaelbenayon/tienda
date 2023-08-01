@@ -1,13 +1,21 @@
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Productos from "./pages/Productos";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
-function App() {
+export default function App() {
     return (
-        <div>
-            <header><NavBar/></header>
-            <main><ItemListContainer greeting={"Bienvenid@ a la tienda de tus artistas favoritos"}/></main>
-        </div>
+        <BrowserRouter>
+            <Header/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="productos" element={<Productos/>}/>
+                <Route path="*" element={
+                    <div>
+                        <p>404</p>
+                    </div>  
+                }/>
+            </Routes>
+        </BrowserRouter>
     )
 }
-
-export default App;

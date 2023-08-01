@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function ItemListContainer({greeting}) {
+export default function ItemListContainer({greeting}) {
     const [cantidadDiscos, setCantidadDiscos] = useState(0);
 
     function handleClickSumarDisco() {
@@ -20,5 +20,3 @@ function ItemListContainer({greeting}) {
         </div>
     )   
 }
-
-export default ItemListContainer;
