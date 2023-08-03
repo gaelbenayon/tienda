@@ -1,5 +1,6 @@
 const discografia = [
     {
+        "id":1,
         "artist":"Lali",
         "name":"LALI",
         "type":"Álbum",
@@ -8,6 +9,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/0/02/Lali_-_Lali.jpg"
     },
     {
+        "id":2,
         "artist":"TINI",
         "name":"Cupido",
         "type":"Álbum",
@@ -16,6 +18,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/0/0f/Tini_-_Cupido_album_cover.jpeg"
     },
     {
+        "id":3,
         "artist":"Maria Becerra",
         "name":"LA NENA DE ARGENTINA",
         "type":"Álbum",
@@ -24,6 +27,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/8/85/Mar%C3%ADa_Becerra_-_La_Nena_de_Argentina.jpg"
     },
     {
+        "id":4,
         "artist":"Maria Becerra",
         "name":"Automático",
         "type":"Single",
@@ -32,6 +36,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/9/90/Autom%C3%A1tico_single_cover.jpeg"
     },
     {
+        "id":5,
         "artist":"Lali",
         "name":"N5",
         "type":"Single",
@@ -40,6 +45,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/9/98/Lali_N5_Artwork.jpeg"
     },
     {
+        "id":6,
         "artist":"Miranda!",
         "name":"Hotel Miranda!",
         "type":"Álbum",
@@ -48,6 +54,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/a/a4/Hotel_Miranda%21.jpg"
     },
     {
+        "id":7,
         "artist":"Duki",
         "name":"Antes de Ameri",
         "type":"Álbum",
@@ -56,6 +63,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/c/cb/Duki_-_Antes_de_Ameri.jpeg"
     },
     {
+        "id":8,
         "artist":"Emilia",
         "name":"Tú Crees en Mí?",
         "type":"Álbum",
@@ -64,6 +72,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/5/58/T%C3%BA_Crees_En_M%C3%AD%3F_-_Emilia.jpg"
     },
     {
+        "id":9,
         "artist":"Emilia",
         "name":"No_se_ve.mp3",
         "type":"Single",
@@ -72,6 +81,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/d/d6/No_Se_Ve%2C_Emilia_and_Ludmilla.jpg"
     },
     {
+        "id":10,
         "artist":"Rosalía",
         "name":"Despechá",
         "type":"Single",
@@ -80,6 +90,7 @@ const discografia = [
         "image":"https://upload.wikimedia.org/wikipedia/en/5/56/Rosal%C3%ADa_-_Despech%C3%A1.png"
     },
     {
+        "id":11,
         "artist":"Big One",
         "name":"En la Intimidad",
         "type":"Single",
