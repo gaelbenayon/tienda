@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import {Link} from "react-router-dom";
 
