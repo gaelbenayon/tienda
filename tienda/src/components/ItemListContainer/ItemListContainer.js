@@ -1,22 +1,28 @@
-import {useState} from "react";
+import {useState,useEffect} from "react";
+import { getProducts, getProductsByCategory } from "../../data";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
-export default function ItemListContainer({greeting}) {
-    const [cantidadDiscos, setCantidadDiscos] = useState(0);
+export default function ItemListContainer() {
 
-    function handleClickSumarDisco() {
-        setCantidadDiscos(cantidadDiscos + 1);
-    }
+    const [products, setProducts] = useState([]);
+    const {categoryId} = useParams();
+    
+    useEffect(()=>{
+        const obtenerDatos = categoryId ? getProductsByCategory : getProducts
 
-    function handleClickRestarDisco() {
-        setCantidadDiscos(cantidadDiscos - 1);
-    }
+        obtenerDatos(categoryId)
+            .then(response => {
+                setProducts(response)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    },[categoryId])
 
     return (
         <div>
-            <h1 className="text-center p-1">{greeting}</h1>
-            <p>Discos: {cantidadDiscos}</p>
-            <button onClick={handleClickSumarDisco}>Sumar disco</button>
-            <button onClick={handleClickRestarDisco}>Restar disco</button>
+            <ItemList products={products}/>
         </div>
     )   
 }
