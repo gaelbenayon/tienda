@@ -1,20 +1,27 @@
+import { useEffect,useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import Loader from "../Loader/Loader";
 
 export default function ItemDetail({artist,name,releaseYear,image,genre,type,price}) {
 
-    while(!artist) {
-        return (
-            <Loader/>
-        )
+    const [isLoading,setIsLoading] = useState(true);
+
+    useEffect(()=>{
+        artist ? setIsLoading(false) : setIsLoading(true);
+    },[artist])
+
+    if (isLoading) {
+        return (<Loader/>)
     }
 
-    let lista = "";
+    let genres = "";
     if (genre) {
         for (let i of genre) {
-            lista += `${i} | `;
+            genres += `${i}, `;
         }
     }
+
+    genres = genres.slice(0,genres.length - 2);
 
     return (
         <div className="card mb-3 w-75">
@@ -28,7 +35,7 @@ export default function ItemDetail({artist,name,releaseYear,image,genre,type,pri
                             <li className="list-group-item">Nombre: {name}</li>
                             <li className="list-group-item">Artista: {artist}</li>
                             <li className="list-group-item">Tipo: {type}</li>
-                            <li className="list-group-item">Género: {lista}</li>
+                            <li className="list-group-item">Género: {genres}</li>
                             <li className="list-group-item">Año de lanzamiento: {releaseYear}</li>
                             <li className="list-group-item">Valor: USD ${price}</li>
                             <li className="list-group-item"><ItemCount/></li>

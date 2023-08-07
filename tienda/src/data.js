@@ -30,7 +30,7 @@ const discografia = [
         "genre":["Reggaeton","Bachata","Cumbia","Dancehall pop","Latin pop","Latin"],
         "releaseYear":2022,
         "image":"https://upload.wikimedia.org/wikipedia/en/8/85/Mar%C3%ADa_Becerra_-_La_Nena_de_Argentina.jpg",
-        "price":0.99
+        "price":9.99
     },
     {
         "id":4,
