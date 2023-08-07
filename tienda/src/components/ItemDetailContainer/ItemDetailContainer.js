@@ -11,10 +11,10 @@ export default function ItemDetailContainer () {
     useEffect(() => {
         getProductById(idProducto)
             .then(response => {
-                setProducto(response)
+                setProducto(response);
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
             })
     },[idProducto])
     

@@ -141,7 +141,7 @@ export const getProductById = (productId) => {
 export const getProductsByCategory = (productCategory) => {
     return new Promise((resolve) => {
         setTimeout(()=>{
-            resolve(discografia.filter(items => items.category == productCategory))
+            resolve(discografia.filter(items => items.category.toLowerCase() == productCategory.toLowerCase()))
         },500)
     })
 }

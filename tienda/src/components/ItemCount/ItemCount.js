@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 import cart from "../CartWidget/assets/cart.svg";
 
@@ -20,11 +21,11 @@ export default function ItemCount () {
     }
 
     return (
-        <div className="d-flex align-items-center">
-            <button className="btn btn-light" onClick={handleRestarUnidad}>-</button>
-            <p>{quantity} unidades</p>
-            <button className="btn btn-light" onClick={handleSumarUnidad}>+</button>
-            <button className="btn btn-info" onClick={handleAgregarAlCarrito}>
+        <div className="d-flex align-items-center ItemCount">
+            <button className="btn btn-outline-info btn-light" onClick={handleRestarUnidad}>-</button>
+            <p className="ps-2 pe-2 mb-0">{quantity}</p>
+            <button className="btn btn-outline-info btn-light" onClick={handleSumarUnidad}>+</button>
+            <button title="Agregar al carrito" className="ms-3 btn btn-info" onClick={handleAgregarAlCarrito}>
                 <img src={cart} alt="carrito"/>
             </button>
         </div>

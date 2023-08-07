@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Item ({id,name,image,artist}) {
     return (
-        <article className="card m-3" style={{width: 18 + 'rem'}}>
+        <article className="card m-2" style={{width: 18 + 'rem'}}>
             <img src={image} className="card-img-top" alt={name}/>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>

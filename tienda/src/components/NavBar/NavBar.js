@@ -14,12 +14,12 @@ export default function NavBar() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                 <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     MÚSICA
                 </a>
                 <ul className="dropdown-menu">
-                    <li><NavLink to={`category/albumes`} className="dropdown-item" href="#">Álbumes</NavLink></li>
-                    <li><NavLink to={`category/sencillos`} className="dropdown-item" href="#">Sencillos</NavLink></li>
+                    <li><NavLink to={`category/albumes`} className={({isActive}) => isActive ? "dropdown-item bg-info text-white" : "dropdown-item bg-none"} href="#">Álbumes</NavLink></li>
+                    <li><NavLink to={`category/sencillos`} className={({isActive}) => isActive ? "dropdown-item bg-info text-white" : "dropdown-item bg-none"} href="#">Sencillos</NavLink></li>
                 </ul>
                 </li>
                 <CartWidget/>
