@@ -4,6 +4,7 @@ const discografia = [
         "artist":"Lali",
         "name":"LALI",
         "type":"Álbum",
+        "tracks":["Obsesión","Disciplina","Cómprame un brishito","KO","2 Son 3","Incondicional","Quiénes Son?","Diva","N5","Ahora","MOTIVEISHON","Como Tú","Sola"],
         "category":"albumes",
         "genre":["Pop","Hyperpop","Dance","EDM"],
         "releaseYear":2023,

@@ -1,8 +1,9 @@
 import { useEffect,useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import Accordion from "../Accordion/Accordion";
 import Loader from "../Loader/Loader";
 
-export default function ItemDetail({artist,name,releaseYear,image,genre,type,price}) {
+export default function ItemDetail({artist,name,releaseYear,image,genre,type,price,tracks}) {
 
     const [isLoading,setIsLoading] = useState(true);
 
@@ -35,6 +36,8 @@ export default function ItemDetail({artist,name,releaseYear,image,genre,type,pri
                             <li className="list-group-item">Nombre: {name}</li>
                             <li className="list-group-item">Artista: {artist}</li>
                             <li className="list-group-item">Tipo: {type}</li>
+                            {tracks && <li className="list-group-item">Cantidad de tracks: {tracks.length}</li>}
+                            {tracks && <li className="list-group-item">{<Accordion content={tracks}/>}</li>}
                             <li className="list-group-item">Género: {genres}</li>
                             <li className="list-group-item">Año de lanzamiento: {releaseYear}</li>
                             <li className="list-group-item">Valor: USD ${price}</li>
