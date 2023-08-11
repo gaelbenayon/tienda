@@ -20,7 +20,7 @@ export default function Accordion ({content}) {
     return (
         <div>
             <div onClick={handleListaCanciones}>Lista de canciones {icon}</div>
-            {isVisible && tracks}
+            {isVisible && <div>{tracks}</div>}
         </div>
     )
 }
