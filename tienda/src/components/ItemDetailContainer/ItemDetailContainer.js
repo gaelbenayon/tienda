@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../data";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import {db} from "../../config/firebase";
+import {getDocs, collection} from "firebase/firestore";
+const discosRef = collection(db,"items");
 
 export default function ItemDetailContainer () {
 
@@ -9,13 +11,14 @@ export default function ItemDetailContainer () {
     const [producto, setProducto] = useState({});
 
     useEffect(() => {
-        getProductById(idProducto)
-            .then(response => {
-                setProducto(response);
-            })
-            .catch(error => {
-                console.error(error);
-            })
+        const getDiscos = async() => {
+            const results = await getDocs(discosRef);
+            const filteredResults = results.docs.map((doc) => ({
+                ...doc.data(), id:doc.id
+            }))
+            setProducto(filteredResults.find(e=>e.id==idProducto));
+        }
+        getDiscos();
     },[idProducto])
     
     return (

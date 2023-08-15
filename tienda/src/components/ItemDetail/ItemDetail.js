@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import Accordion from "../Accordion/Accordion";
 import Loader from "../Loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function ItemDetail({artist,name,releaseYear,image,genre,type,price,tracks}) {
 
@@ -34,7 +35,7 @@ export default function ItemDetail({artist,name,releaseYear,image,genre,type,pri
                     <div className="card-body">
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">Nombre: {name}</li>
-                            <li className="list-group-item">Artista: {artist}</li>
+                            <li className="list-group-item">Artista: <Link to={`/artist/${artist}`} className="text-info text-decoration-underline">{artist}</Link></li>
                             <li className="list-group-item">Tipo: {type}</li>
                             {tracks && <li className="list-group-item">Cantidad de tracks: {tracks.length}</li>}
                             {tracks && <li className="list-group-item">{<Accordion content={tracks}/>}</li>}

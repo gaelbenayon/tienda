@@ -127,27 +127,3 @@ const discografia = [
         "price":0.99
     }
 ]
-
-export const getProducts = () => {
-    return new Promise( (resolve) => {
-        setTimeout(() => {
-            resolve(discografia)
-        },500)
-    } )
-}
-
-export const getProductById = (productId) => {
-    return new Promise( (resolve) => {
-        setTimeout(() => {
-            resolve(discografia.find(item => item.id == productId))
-        },500)
-    })
-}
-
-export const getProductsByCategory = (productCategory) => {
-    return new Promise((resolve) => {
-        setTimeout(()=>{
-            resolve(discografia.filter(items => items.category.toLowerCase() == productCategory.toLowerCase()))
-        },500)
-    })
-}

@@ -11,6 +11,7 @@ export default function App() {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<ItemListContainer/>}/>
                     <Route path="category/:categoryId" element={<ItemListContainer/>}/>
+                    <Route path="artist/:artistId" element={<ItemListContainer/>}/>
                     <Route path="item/:idProducto" element={<ItemDetailContainer/>}/>
                     <Route path="*" element={
                     <div className="text-center">
