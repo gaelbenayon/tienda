@@ -4,7 +4,9 @@ import Accordion from "../Accordion/Accordion";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 
-export default function ItemDetail({artist,name,releaseYear,image,genre,type,price,tracks}) {
+export default function ItemDetail({...item}) {
+
+    let {artist,name,releaseYear,image,genre,type,price,tracks} = item;
 
     const [isLoading,setIsLoading] = useState(true);
 
@@ -42,7 +44,7 @@ export default function ItemDetail({artist,name,releaseYear,image,genre,type,pri
                             <li className="list-group-item">Género: {genres}</li>
                             <li className="list-group-item">Año de lanzamiento: {releaseYear}</li>
                             <li className="list-group-item">Valor: USD ${price}</li>
-                            <li className="list-group-item"><ItemCount/></li>
+                            <li className="list-group-item"><ItemCount {...item}/></li>
                         </ul>
                     </div>
                 </div>
