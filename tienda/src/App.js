@@ -6,6 +6,7 @@ import Checkout from "./components/Checkout/Checkout";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import "./App.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
     return (

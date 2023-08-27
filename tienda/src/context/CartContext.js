@@ -1,4 +1,5 @@
 import { createContext,useEffect,useState } from "react";
+import {toast} from "react-toastify";
 
 export const CartContext = createContext({
     cartItems: []
@@ -41,7 +42,7 @@ export const CartProvider = ({children}) => {
     }
 
     const getTotalPrice = () => {
-        return cart.reduce((ac,item) => ac + (item.quantity * item.price),0)
+        return cart.reduce((ac,item) => ac + (item.quantity * item.price),0).toFixed(2)
     }
 
     const removeItem = (itemId) => {
@@ -53,8 +54,32 @@ export const CartProvider = ({children}) => {
         setCart([]);
     }
 
+    const notifyRemovedItem = () => {
+        toast.success(`Eliminaste el producto del carrito`, {
+            position: "bottom-left",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+    }
+
+    const notifyWrongOrder = () => {
+        toast.error(`Hubo un problema generando su orden. Verifique haber ingresado datos válidos`, {
+            position: "bottom-left",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
+    }
+
     return (
-        <CartContext.Provider value={{cart,setCart,isInCart,addItem,getCart,removeItem,clearCart,getTotalPrice,cartItemsQuantity}}>
+        <CartContext.Provider value={{cart,setCart,isInCart,addItem,getCart,removeItem,clearCart,getTotalPrice,cartItemsQuantity,notifyRemovedItem,notifyWrongOrder}}>
             {children}
         </CartContext.Provider>
     )

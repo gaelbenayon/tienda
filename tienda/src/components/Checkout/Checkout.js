@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import {db} from "../../config/firebase";
 import Loader from "../Loader/Loader";
+import { ToastContainer } from "react-toastify";
 
 export default function Checkout () {
 
@@ -13,7 +14,7 @@ export default function Checkout () {
 
     const [newOrderId, setNewOrderId] = useState(undefined);
 
-    const {cart,getTotalPrice,clearCart} = useContext(CartContext);
+    const {cart,getTotalPrice,clearCart,notifyWrongOrder} = useContext(CartContext);
 
     const [loading, setLoading] = useState(false);
 
@@ -36,11 +37,16 @@ export default function Checkout () {
             },
             items: cart,
             total: getTotalPrice(),
-            date: Timestamp.fromDate(new Date())
+            date: Timestamp.fromDate(new Date()),
+            state:"generated"
         }
-        const newOrder = await addDoc (ordersCollectionRef, order);
-        setNewOrderId(newOrder.id);
-        clearCart();
+        if (nombre.length > 0 && correo.length > 0 && getTotalPrice() > 0 && order.items.length > 0) {
+            const newOrder = await addDoc (ordersCollectionRef, order);
+            setNewOrderId(newOrder.id);
+            clearCart();
+        } else {
+            notifyWrongOrder();
+        }
         setLoading(false);
     }
 
@@ -50,13 +56,14 @@ export default function Checkout () {
 
     return (
         <div className="text-center w-75">
-            <h3 className="text-info">CHECKOUT</h3>
+            <h3 className="text-info mb-3">CHECKOUT</h3>
             {!newOrderId && 
                 <CheckoutForm onConfirm={createOrder}/>
             }
             {newOrderId && 
                 <h4>El código de su orden es: {newOrderId}</h4>
             }
+            <ToastContainer/>
         </div>
     )
 }

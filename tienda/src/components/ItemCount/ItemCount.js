@@ -1,5 +1,4 @@
 import "./style.css";
-import 'react-toastify/dist/ReactToastify.css';
 import { useContext, useState } from "react";
 import cartIcon from "../CartWidget/assets/cart.svg";
 import { CartContext } from "../../context/CartContext";
@@ -11,20 +10,10 @@ export default function ItemCount ({...item}) {
 
     function handleSumarUnidad() {
         setQuantity(quantity + 1);
-        toast(`Agregaste ${quantity} producto`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        })
     }
 
     function handleRestarUnidad() {
-        if (quantity > 0) {
+        if (quantity > 1) {
             setQuantity(quantity - 1);
         }
     } 
@@ -34,9 +23,15 @@ export default function ItemCount ({...item}) {
     function handleAgregarAlCarrito(itemSeleccionado) { 
         if (quantity > 0) {
             addItem(itemSeleccionado,quantity);
-
-        } else {
-            console.log("Por favor, seleccione al menos 1 unidad");
+            toast.success(`Agregaste ${quantity} unidad(es)`, {
+                position: "bottom-left",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
         }
     }
 
@@ -48,6 +43,7 @@ export default function ItemCount ({...item}) {
             <button title="Agregar al carrito" className="ms-3 btn btn-info" onClick={()=>handleAgregarAlCarrito(item,quantity)}>
                 <img src={cartIcon} alt="carrito"/>
             </button>
+            <ToastContainer/>
         </div>
     )
 }
