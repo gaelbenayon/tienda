@@ -7,7 +7,7 @@ export default function Item ({id,name,image,artist}) {
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <p className="card-text text-muted">{artist}</p>
-                <Link to={`/item/${id}`} className="btn btn-info text-light">VER MÁS</Link>
+                <Link to={`/item/${id}`} className="btn btn-info text-light">VER INFO.</Link>
             </div>
         </article>
     )

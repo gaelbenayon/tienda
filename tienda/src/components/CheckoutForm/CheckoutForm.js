@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./CheckoutForm.css"
 
 export default function CheckoutForm ({onConfirm}) {
@@ -8,7 +8,6 @@ export default function CheckoutForm ({onConfirm}) {
 
     function handleOnSubmit(event) {
         event.preventDefault();
-        console.log(nombre);
         const userData = {
             nombre,correo
         }

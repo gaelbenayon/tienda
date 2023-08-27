@@ -1,7 +1,9 @@
 import "./style.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { useContext, useState } from "react";
 import cartIcon from "../CartWidget/assets/cart.svg";
 import { CartContext } from "../../context/CartContext";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function ItemCount ({...item}) {
 
@@ -9,6 +11,16 @@ export default function ItemCount ({...item}) {
 
     function handleSumarUnidad() {
         setQuantity(quantity + 1);
+        toast(`Agregaste ${quantity} producto`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        })
     }
 
     function handleRestarUnidad() {
@@ -22,6 +34,7 @@ export default function ItemCount ({...item}) {
     function handleAgregarAlCarrito(itemSeleccionado) { 
         if (quantity > 0) {
             addItem(itemSeleccionado,quantity);
+
         } else {
             console.log("Por favor, seleccione al menos 1 unidad");
         }

@@ -2,9 +2,24 @@ import "./style.css";
 import CartWidget from "../CartWidget/CartWidget";
 import magnifyingGlass from "./assets/magnifying-glass.svg";
 import record from "./assets/record-vinyl-solid.svg";
-import {Link,NavLink} from "react-router-dom";
+import {Link,NavLink,useNavigate,useParams} from "react-router-dom";
+import { useState } from "react";
 
 export default function NavBar() {
+
+    const [buscador, setBuscador] = useState(undefined);
+
+    const navigate = useNavigate();
+
+    function handleOnSubmit(event) {
+        
+        event.preventDefault();
+
+        if (buscador) {
+            navigate(`/artist/${buscador}`);
+        }
+    }
+
     return (
     <nav className="navbar navbar-expand-md bg-info">
         <div className="container-fluid">
@@ -27,8 +42,8 @@ export default function NavBar() {
                 </li>
                     <CartWidget/>
             </ul>
-            <form className="d-flex" role="search">
-                <input className="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+            <form onSubmit={handleOnSubmit} className="d-flex" role="search">
+                <input className="form-control me-2" type="search" placeholder="Buscar un artista" aria-label="Search" onChange={({target})=>setBuscador(target.value)}/>
                 <button className="btn btn-outline-info" type="submit"><img src={magnifyingGlass} alt="buscador"/></button>
             </form>
             </div>

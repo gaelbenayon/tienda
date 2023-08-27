@@ -22,7 +22,7 @@ export default function CartItem ({product}) {
                 ${price} x {quantity}u.
             </div>
             <div className="col-6 col-lg-2 small">
-                SUBTOTAL: ${price*quantity}
+                SUBTOTAL: ${(price*quantity).toFixed(2)}
             </div>
             <div className="col-12 col-lg-1">
                 <button className="btn" onClick={()=>removeItem(id)}><FaTrash/></button>
