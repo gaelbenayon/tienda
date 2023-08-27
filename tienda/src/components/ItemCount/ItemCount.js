@@ -17,12 +17,14 @@ export default function ItemCount ({...item}) {
         }
     } 
 
-    const {addItem,getCart} = useContext(CartContext);
+    const {addItem} = useContext(CartContext);
 
-    function handleAgregarAlCarrito(...itemSeleccionado) { 
-        console.log(quantity > 0 ? `Se añadieron ${quantity} unidades al carrito` : `Por favor, seleccione al menos 1 unidad`);
-        addItem(itemSeleccionado,quantity);
-        getCart();
+    function handleAgregarAlCarrito(itemSeleccionado) { 
+        if (quantity > 0) {
+            addItem(itemSeleccionado,quantity);
+        } else {
+            console.log("Por favor, seleccione al menos 1 unidad");
+        }
     }
 
     return (

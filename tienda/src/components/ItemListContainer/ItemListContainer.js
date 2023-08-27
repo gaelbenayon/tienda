@@ -32,7 +32,6 @@ export default function ItemListContainer() {
             }
             setLoadState(false);
         }
-
         getDiscos()
 
     },[categoryId,artistId])
@@ -45,7 +44,7 @@ export default function ItemListContainer() {
 
     return (
         <div>
-            <ItemList products={products}/>
+            <ItemList products={products} param={artistId}/>
         </div>
     )   
 }

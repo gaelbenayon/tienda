@@ -1,0 +1,13 @@
+.CheckoutForm input {
+    border: 0;
+    border-bottom: 2px solid cyan;
+    margin-bottom: 20px;
+}
+
+.CheckoutForm input:focus {
+    outline: none;
+}
+
+.CheckoutForm label {
+    text-align: left;
+}

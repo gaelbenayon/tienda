@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import {db} from "../../config/firebase";
 import {getDocs, collection} from "firebase/firestore";
+
 const discosRef = collection(db,"items");
 
 export default function ItemDetailContainer () {
