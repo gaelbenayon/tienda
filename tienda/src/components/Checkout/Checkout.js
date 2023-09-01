@@ -12,22 +12,13 @@ export default function Checkout () {
 
     const [ordersList, setOrdersList] = useState([]);
 
+    const [purchase, setPurchase] = useState([]);
+
     const [newOrderId, setNewOrderId] = useState(undefined);
 
     const {cart,getTotalPrice,clearCart,notifyWrongOrder} = useContext(CartContext);
 
     const [loading, setLoading] = useState(false);
-
-    const getOrdersList = async () => {
-        const data = await getDocs(ordersCollectionRef);
-        const filteredData = data.docs.map((doc)=>({...doc.data(), id:doc.id}))
-        setOrdersList(filteredData);
-        setLoading(false);
-    }
-
-    useEffect(()=>{
-        getOrdersList();
-    },[])
 
     const createOrder = async ({nombre,correo}) => {
         setLoading(true);
@@ -43,12 +34,25 @@ export default function Checkout () {
         if (nombre.length > 0 && correo.length > 0 && getTotalPrice() > 0 && order.items.length > 0) {
             const newOrder = await addDoc (ordersCollectionRef, order);
             setNewOrderId(newOrder.id);
+            getOrdersList();
             clearCart();
         } else {
             notifyWrongOrder();
         }
         setLoading(false);
     }
+
+    const getOrdersList = async () => {
+        const data = await getDocs(ordersCollectionRef);
+        const filteredData = data.docs.map((doc)=>({...doc.data(), id:doc.id}))
+        setOrdersList(filteredData);
+        setLoading(false);
+    }
+
+    useEffect(()=>{
+        let item = ordersList.find(e=>e.id==newOrderId);
+        setPurchase(item);
+    },[ordersList])
 
     if (loading) {
         return <Loader/>
@@ -60,8 +64,11 @@ export default function Checkout () {
             {!newOrderId && 
                 <CheckoutForm onConfirm={createOrder}/>
             }
-            {newOrderId && 
-                <h4>El código de su orden es: {newOrderId}</h4>
+            {newOrderId && purchase &&
+                <div>
+                    <h4>El código de su orden es: {newOrderId}</h4>
+                    <p>El total a abonar es de ${purchase.total}</p>
+                </div>
             }
             <ToastContainer/>
         </div>

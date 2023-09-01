@@ -26,7 +26,7 @@ export default function ItemListContainer() {
             if (categoryId) {
                 setProducts(filteredResults.filter(e=>e.category.toLowerCase()==categoryId.toLowerCase()));
             } else if (artistId) {
-                setProducts(filteredResults.filter(e=>e.artist.toLowerCase()==artistId.toLowerCase()))
+                setProducts(filteredResults.filter(e=>e.artist.toLowerCase().includes(artistId.toLowerCase())));
             } else {
                 setProducts(filteredResults);
             }

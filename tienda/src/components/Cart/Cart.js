@@ -1,8 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
-import {toast, ToastContainer} from "react-toastify";
+import {ToastContainer} from "react-toastify";
 
 export default function Cart () {
 
@@ -39,21 +39,10 @@ export default function Cart () {
                                 <button className="btn btn-info text-light" onClick={clearCart}>Vaciar carrito</button>
                             </div>
                         </li>
-                    
                     }
                 </ol>    
             </div>
-            {/* {cartItemsQuantity > 0 && 
-                <div>
-                    <span className="small text-end">TOTAL: ${getTotalPrice()}</span>
-                    <div className="d-flex justify-content-center">
-                        <Link to="/checkout" className="btn btn-outline-info">Terminar compra</Link>
-                        <button className="btn btn-outline-info" onClick={clearCart}>Vaciar carrito</button>
-                    </div>
-                </div>   
-            } */}
             <ToastContainer/>
         </div>
-       
     )
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./CheckoutForm.css"
+import "./CheckoutForm.css";
 
 export default function CheckoutForm ({onConfirm}) {
 

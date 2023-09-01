@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCP9a6Kz3ukI3W3Fb4QvVWPr4X5p4v1xi8",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "discosgb.firebaseapp.com",
   projectId: "discosgb",
   storageBucket: "discosgb.appspot.com",
-  messagingSenderId: "172307596674",
-  appId: "1:172307596674:web:f2e6c404a75bee35b17b9b"
+  messagingSenderId: process.env.FIREBASE_MESSAGINGSENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
